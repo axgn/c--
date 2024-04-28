@@ -1,0 +1,3 @@
+F:/code/c++/keyborad/build/CMakeFiles/hello.dir
+F:/code/c++/keyborad/build/CMakeFiles/edit_cache.dir
+F:/code/c++/keyborad/build/CMakeFiles/rebuild_cache.dir

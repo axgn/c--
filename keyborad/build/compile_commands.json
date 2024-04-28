@@ -1,0 +1,8 @@
+[
+{
+  "directory": "F:/code/c++/keyborad/build",
+  "command": "D:\\Programfile\\mingw\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\hello.dir\\main.cpp.obj -c F:\\code\\c++\\keyborad\\main.cpp",
+  "file": "F:/code/c++/keyborad/main.cpp",
+  "output": "CMakeFiles/hello.dir/main.cpp.obj"
+}
+]
