@@ -66,7 +66,7 @@ void backordedtravel(Bitree *T)
     }
 }
 
-void inordedtravel2(Bitree *T)
+void backordedtravel2(Bitree *T)
 {
     stack<Bitree *> st;
     Bitree *temp;
@@ -127,7 +127,8 @@ int main()
     cout << '\n';
     inordedtravel2(tree);
     return 0;
-}#include <iostream>
+}
+#include <iostream>
 #include <vector>
 #include <iomanip>
 #include <algorithm>
@@ -194,7 +195,6 @@ void backordedtravel(Bitree *T)
 void inordedtravel2(Bitree *T)
 {
     stack<Bitree *> st;
-    Bitree *temp;
     while (!st.empty() || T)
     {
         if (T)
@@ -206,17 +206,7 @@ void inordedtravel2(Bitree *T)
         {
             T = st.top();
             st.pop();
-            if (T->rchild == nullptr || T->rchild == temp)
-            {
-                temp = T;
-                cout << T->data << ' ';
-                T = nullptr;
-            }
-            else
-            {
-                st.push(T);
-                T = T->rchild;
-            }
+            T = T->rchild;
         }
     }
 }
@@ -252,4 +242,3 @@ int main()
     cout << '\n';
     inordedtravel2(tree);
     return 0;
-}

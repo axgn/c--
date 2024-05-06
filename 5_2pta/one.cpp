@@ -1,10 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <stack>
 #include <sstream>
 #include <unordered_map>
-#include <algorithm>
 
 using namespace std;
 
@@ -30,31 +28,23 @@ void read_tree(vector<pair<string, int>> &s_num, int &m)
 
 void make_map(unordered_map<string, string> &map_parent, const vector<pair<string, int>> &s_num)
 {
-    stack<int> st;
-    int i = 0;
-    st.push(i);
-    while (!st.empty())
+    for (int i = 0; i < s_num.size() - 1; i++)
     {
-        if (s_num[st.top()].second <= s_num[i + 1].second)
+        if (i == 0)
         {
-            st.push(i + 1);
-            i++;
+            map_parent[s_num[0].first] = "";
+        }
+        if (s_num[i].second < s_num[i + 1].second)
+        {
+            map_parent[s_num[i + 1].first] = s_num[i].first;
+        }
+        else if (s_num[i].second == s_num[i + 1].second)
+        {
+            map_parent[s_num[i + 1].first] = map_parent[s_num[i].first];
         }
         else
         {
-            int temp = i;
-            vector<int> st2;
-            while (s_num[temp].second == s_num[st.top()].second)
-            {
-                st2.push_back(st.top());
-                st.pop();
-            }
-            for (auto &i : st2)
-            {
-                map_parent[s_num[i].first] = s_num[st.top()].first;
-            }
-            st.push(i + 1);
-            i++;
+            map_parent[s_num[i + 1].first] = map_parent[map_parent[s_num[i].first]];
         }
     }
 }
@@ -88,7 +78,7 @@ bool descendant(const unordered_map<string, string> &map_parent, const string &X
     string temp = X;
     while (map_parent.at(temp) != "")
     {
-        if(map_parent.at(temp) == Y)
+        if (map_parent.at(temp) == Y)
         {
             return true;
         }
@@ -113,10 +103,11 @@ bool ancestor(const unordered_map<string, string> &map_parent, const string &X, 
 
 bool sibling(const unordered_map<string, string> &map_parent, const string &X, const string &Y)
 {
-    if(map_parent.at(X) == map_parent.at(Y))
+    if (map_parent.at(X) == map_parent.at(Y))
     {
         return true;
-    }else
+    }
+    else
     {
         return false;
     }
@@ -155,7 +146,5 @@ int main()
             cout << "False\n";
         }
     }
-    for_each(s_num.begin(), s_num.end(), [](auto &k)
-             { cout << k.first << ' ' << k.second << '\n'; });
     return 0;
 }
