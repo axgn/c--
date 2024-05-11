@@ -44,7 +44,13 @@ void make_map(unordered_map<string, string> &map_parent, const vector<pair<strin
         }
         else
         {
-            map_parent[s_num[i + 1].first] = map_parent[map_parent[s_num[i].first]];
+            int dif = s_num[i].second - s_num[i + 1].second;
+            string temp = map_parent[s_num[i].first];
+            for (int i = 0; i < dif; i += 2)
+            {
+                temp = map_parent[temp];
+            }
+            map_parent[s_num[i + 1].first] = temp;
         }
     }
 }

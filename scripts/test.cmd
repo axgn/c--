@@ -1,0 +1,1 @@
+cmd /c chcp 65001>nul && dir >> one.txt
