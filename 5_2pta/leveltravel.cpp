@@ -42,3 +42,16 @@ public:
         return result;
     }
 };
+
+int main()
+{
+    vector<vector<int>> temp(5, vector<int>(6, 0));
+    for (auto i : temp)
+    {
+        for (auto j : i)
+        {
+            cout << j;
+        }
+    }
+    cout << '\n';
+}
