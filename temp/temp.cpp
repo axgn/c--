@@ -58,7 +58,7 @@ matrix::~matrix()
 
 int main(int argc, char *argv[])
 {
-    matrix m1({{1, 1, 1}, {0, 0, 1}, {1, 0, 1}});
+    matrix m1({{0, 0, 0, 0, 0}, {1, 0, 1, 1, 0}, {1, 0, 0, 0, 0}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}});
     m1.show();
     matrix res = m1.Warshall();
     res.show();

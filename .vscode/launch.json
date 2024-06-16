@@ -34,8 +34,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "f:/code/c++/5_29pta",
-      "program": "f:/code/c++/5_29pta/build/Debug/outDebug",
+      "cwd": "f:/code/c++/temp",
+      "program": "f:/code/c++/temp/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
